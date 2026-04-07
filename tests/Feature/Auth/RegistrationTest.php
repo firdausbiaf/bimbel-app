@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\Role;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -19,6 +21,8 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
+        Role::factory()->create(['name' => User::ROLE_STUDENT]);
+
         $response = $this->post('/register', [
             'name' => 'Test User',
             'email' => 'test@example.com',
@@ -28,5 +32,25 @@ class RegistrationTest extends TestCase
 
         $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);
+        $this->assertDatabaseHas('users', [
+            'email' => 'test@example.com',
+        ]);
+    }
+
+    public function test_new_users_are_registered_as_students(): void
+    {
+        $studentRole = Role::factory()->create(['name' => User::ROLE_STUDENT]);
+
+        $this->post('/register', [
+            'name' => 'Student User',
+            'email' => 'student@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $this->assertDatabaseHas('users', [
+            'email' => 'student@example.com',
+            'role_id' => $studentRole->id,
+        ]);
     }
 }

@@ -2,18 +2,21 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use HasFactory;
     use Notifiable;
+
+    public const ROLE_ADMIN = 'admin';
+    public const ROLE_TUTOR = 'tutor';
+    public const ROLE_STUDENT = 'student';
 
     protected $fillable = [
         'role_id',
@@ -41,6 +44,26 @@ class User extends Authenticatable
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function getRoleName(): ?string
+    {
+        return $this->role?->name;
+    }
+
+    public function hasRole(string $role): bool
+    {
+        return $this->getRoleName() === $role;
+    }
+
+    public function dashboardRoute(): string
+    {
+        return match ($this->getRoleName()) {
+            self::ROLE_ADMIN => route('admin.dashboard'),
+            self::ROLE_TUTOR => route('tutor.dashboard'),
+            self::ROLE_STUDENT => route('student.dashboard'),
+            default => route('login'),
+        };
     }
 
     public function tutorClasses(): BelongsToMany
