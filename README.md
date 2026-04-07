@@ -64,3 +64,163 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+=======================================
+
+# Bimbel LMS System
+
+Sistem manajemen bimbingan belajar (Learning Management System / LMS) berbasis Laravel dan PostgreSQL.
+
+---
+
+## 🚀 Tech Stack
+
+- Laravel
+- PostgreSQL
+- Laravel Breeze (Blade + Alpine)
+- Alpine.js
+- Laragon (Local Development)
+- VSCode
+
+---
+
+## 📦 Requirements
+
+Pastikan sudah terinstall di komputer:
+
+- PHP >= 8.1
+- Composer
+- Node.js & NPM
+- PostgreSQL
+- Git
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone repository
+
+```bash
+git clone https://github.com/USERNAME/REPO_NAME.git
+cd REPO_NAME
+```
+
+---
+
+### 2. Install dependencies
+
+```bash
+composer install
+npm install
+```
+
+---
+
+### 3. Setup environment
+
+Copy file `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Edit konfigurasi database di `.env`:
+
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=bimbel_app
+DB_USERNAME=postgres
+DB_PASSWORD=your_password
+```
+
+---
+
+### 4. Generate application key
+
+```bash
+php artisan key:generate
+```
+
+---
+
+### 5. Run migration & seed
+
+```bash
+php artisan migrate --seed
+```
+
+---
+
+### 6. Run development server
+
+```bash
+npm run dev
+php artisan serve
+```
+
+Akses aplikasi di browser:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 🔐 Authentication
+
+Project menggunakan Laravel Breeze:
+
+- Login
+- Register
+- Logout
+
+---
+
+## 🧪 Testing (Optional)
+
+```bash
+php artisan test
+```
+
+---
+
+## 📁 Core Modules
+
+Sistem ini mencakup:
+
+- User & Role Management
+- Class & Membership
+- Schedule
+- Attendance
+- Material
+- Assignment
+- Assessment (Quiz / Exam / Tryout)
+
+---
+
+## 📝 Notes
+
+- Pastikan PostgreSQL dalam keadaan running
+- Pastikan database sudah dibuat sebelum menjalankan migration
+- Untuk reset database gunakan:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+---
+
+## 👨‍💻 Development Status
+
+- Core schema: ✅
+- Authentication: ✅
+- Next: Role-based dashboard & feature modules
+
+---
+
+## 📄 License
+
+This project is open-source.php artisan serve
