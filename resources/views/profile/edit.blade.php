@@ -1,25 +1,30 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
+        <div class="space-y-1">
+            <h2 class="text-2xl font-bold tracking-tight text-slate-950">
+                {{ __('Profile') }}
+            </h2>
+            <p class="text-sm leading-7 text-slate-600">
+                Kelola informasi akun, password, dan pengaturan profil Anda.
+            </p>
+        </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+    <div class="space-y-6">
+        <div class="space-y-6">
+            <div class="rounded-[1.75rem] border border-white/70 bg-white/90 p-4 shadow-2xl shadow-slate-200/35 backdrop-blur sm:p-8">
                 <div class="max-w-xl">
                     @include('profile.partials.update-profile-information-form')
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+            <div class="rounded-[1.75rem] border border-white/70 bg-white/90 p-4 shadow-2xl shadow-slate-200/35 backdrop-blur sm:p-8">
                 <div class="max-w-xl">
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+            <div class="rounded-[1.75rem] border border-white/70 bg-white/90 p-4 shadow-2xl shadow-slate-200/35 backdrop-blur sm:p-8">
                 <div class="max-w-xl">
                     @include('profile.partials.delete-user-form')
                 </div>
