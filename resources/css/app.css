@@ -35,7 +35,7 @@
     }
 
     .auth-shell {
-        @apply relative min-h-screen overflow-hidden bg-slate-100 text-slate-900 antialiased;
+        @apply bg-slate-100 text-slate-900 antialiased;
     }
 
     .auth-background {

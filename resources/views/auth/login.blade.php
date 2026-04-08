@@ -1,33 +1,14 @@
 <x-guest-layout>
-    <div class="space-y-8">
-        <div class="space-y-3">
+    <div class="space-y-6">
+        <div class="space-y-2 text-center">
             <p class="auth-badge">Welcome back</p>
-            <div class="space-y-2">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-950">Masuk ke area belajar Anda</h2>
-                <p class="text-sm leading-7 text-slate-600">
-                    Lanjutkan ke dashboard sesuai role untuk mengelola kelas, materi, tugas, dan aktivitas belajar.
-                </p>
-            </div>
+            <h2 class="text-3xl font-bold tracking-tight text-slate-950">Masuk ke akun Anda</h2>
+            <p class="text-sm leading-7 text-slate-600">
+                Lanjutkan ke dashboard sesuai role Anda.
+            </p>
         </div>
 
         <x-auth-session-status class="status-banner" :status="session('status')" />
-
-        <div class="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4">
-            <div class="grid gap-3 sm:grid-cols-3">
-                <div class="auth-inline-stat">
-                    <p class="auth-inline-label">Admin</p>
-                    <p class="auth-inline-copy">Kontrol data utama</p>
-                </div>
-                <div class="auth-inline-stat">
-                    <p class="auth-inline-label">Tutor</p>
-                    <p class="auth-inline-copy">Kelola kelas dan evaluasi</p>
-                </div>
-                <div class="auth-inline-stat">
-                    <p class="auth-inline-label">Student</p>
-                    <p class="auth-inline-copy">Belajar lebih fokus</p>
-                </div>
-            </div>
-        </div>
 
         <form method="POST" action="{{ route('login') }}" class="space-y-5">
             @csrf

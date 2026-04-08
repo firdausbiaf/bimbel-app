@@ -1,30 +1,11 @@
 <x-guest-layout>
-    <div class="space-y-8">
-        <div class="space-y-3">
+    <div class="space-y-6">
+        <div class="space-y-2 text-center">
             <p class="auth-badge">Create account</p>
-            <div class="space-y-2">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-950">Daftar untuk mulai belajar</h2>
-                <p class="text-sm leading-7 text-slate-600">
-                    Buat akun student untuk masuk ke platform bimbel dan mengikuti kelas, materi, tugas, serta assessment.
-                </p>
-            </div>
-        </div>
-
-        <div class="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4">
-            <div class="grid gap-3 sm:grid-cols-3">
-                <div class="auth-inline-stat">
-                    <p class="auth-inline-label">Schedule</p>
-                    <p class="auth-inline-copy">Ikuti agenda kelas</p>
-                </div>
-                <div class="auth-inline-stat">
-                    <p class="auth-inline-label">Materials</p>
-                    <p class="auth-inline-copy">Akses materi belajar</p>
-                </div>
-                <div class="auth-inline-stat">
-                    <p class="auth-inline-label">Assessments</p>
-                    <p class="auth-inline-copy">Pantau evaluasi belajar</p>
-                </div>
-            </div>
+            <h2 class="text-3xl font-bold tracking-tight text-slate-950">Buat akun baru</h2>
+            <p class="text-sm leading-7 text-slate-600">
+                Daftar untuk mulai masuk ke platform bimbel.
+            </p>
         </div>
 
         <form method="POST" action="{{ route('register') }}" class="space-y-5">
